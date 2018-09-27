@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="lab">
+    <meta name="author" content="Nikolaenkova Alina">
+    <title>
+        Лабораторная 1
+    </title>
+    <link rel="stylesheet" type="text/css" href="main0.css"/>
+    <script type="text/javascript" src="script0.js"></script>
+</head>
+
+<body>
+<table class="main">
+    <tr class=title>
+        <td>
+            Николаенкова А.А. <br> P3201 <br> Вариант 18110
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="left">
+
+                <form action="send.php" method="post" name="form">
+                    <div>
+                        Задайте параметры точки:
+                        <br>
+                        <label for="x">
+                            Х =
+                        </label>
+                        <select class="block" id="x" name="X">
+                            <option value="-2">-2</option>
+                            <option value="-1.5">-1.5</option>
+                            <option value="-1">-1</option>
+                            <option value="-0.5">-0.5</option>
+                            <option value="0">0</option>
+                            <option value="0.5">0.5</option>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                        </select>
+
+                        <label for="y">
+                            Y =
+                        </label>
+                        <input type="text" class="block" name="Y" id="y" onkeydown="validateY()">
+                    </div>
+                    <div class="alertMsg" id="errY" >
+                        Не отчаивайтесь, на клавиатуре<br> не так уж много кнопок.
+                    </div>
+                    <div id="1">
+                        Выберите радиус области:
+                        <br>
+                        <label for="r">
+                            R =
+                        </label>
+                        <input type="radio" name="R" id="r" value="1">1
+                        <input type="radio" name="R" value="2">2
+                        <input type="radio" name="R" value="3">3
+                        <input type="radio" name="R" value="4">4
+                        <input type="radio" name="R" value="5">5
+                    </div>
+                    <div class="alertMsg" id="errR" >
+                        Все-таки, радиусу лучше быть заданным,<br> инчае смысл?
+                    </div>
+                    <div id="2">
+                        <input type="submit" value="Отправить" name="button" onclick="validateForm()">
+                    </div>
+                </form>
+
+            </div>
+        </td>
+    </tr>
+    <tr class=title>
+        <td>
+            Университет ИТМО <br><a href="https://se.ifmo.ru" title="или не кафедра?" target="_blank">Кафедра ВТ</a><br>2018
+        </td>
+    </tr>
+</table>
+</body>
+</html>
