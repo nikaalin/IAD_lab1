@@ -1,0 +1,138 @@
+@viewport {
+    user-zoom: fixed;
+    width: device-width;
+    height: device-height;
+}
+body{
+    /*background-color: #2e2d2d;*/
+    background-image: url(images/img0.png);}
+table.main{
+    border-spacing: 15px;
+    width: 80vw;
+    height: 90vh;
+    margin-left: 10vw;
+    margin-top: 3vh;
+    background-color: blanchedalmond;
+}
+
+table td{
+    position: relative;
+    padding: 25px;
+}
+
+tr.title{
+    text-align: center;
+    height: 10vh;
+    font-family: serif;
+    font-size: 15pt;
+    color: antiquewhite;
+    background-color: #6C4141;
+}
+div{
+    margin-outside: 10vw;
+    font-family: arial;
+    font-size: 20pt;
+    text-align: center;
+}
+@media screen and (orientation: landscape){
+    div#left{
+        position: absolute;
+        top: 15%;
+        left: 35%;
+    }
+    div#right{
+        position: absolute;
+        top: 15%;
+        left: 33%;
+    }
+    table[name="result"]{
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 30vw;
+    }
+    .block {
+        font-size: 20pt;
+        margin-top: 0;
+        margin-outside: 0;
+        height: 23pt;
+        width: 50pt;
+    }
+    input[name="R"] {
+        margin-top: 0;
+        height: 20pt;
+        width: 20pt;
+    }
+    input[type="submit"] {
+        border-radius: 25px;
+        font: 16px Arial;
+        margin-outside: 10px;
+    }
+}
+@media screen and (orientation: portrait) {
+    div#left{
+        position: static;
+        font-size: 40pt;
+        text-align: center;
+    }
+    div#right{
+        position: static;
+        text-align: center;
+        font-size: 40pt;
+    }
+    table[name="result"]{
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 80vw;
+    }
+    .block {
+        font-size: 28pt;
+        margin-top: 0;
+        margin-outside: 0;
+        height: 31pt;
+        width: 60pt;
+    }
+    input[name="R"] {
+        margin-top: 0;
+        height: 30pt;
+        width: 30pt;
+    }
+    input[type="submit"] {
+        border-radius: 40px;
+        font: 30px Arial;
+    }
+}
+
+input[type="submit"] {
+    text-align: center;
+    padding: 10px 30px;
+    border: groove 4px saddlebrown;
+    font-weight: bold;
+    color: #f7f7f7;
+    background-color: rosybrown;
+    text-shadow: 1px 2px 4px #2e2d2d;
+    margin-top: 10px;
+}
+table[name="result"] th{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+table[name="result"] td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+}
+div.alertMsg{
+    font-family: "Book Antiqua";
+    font-size: 15pt;
+    color: crimson;
+    margin-outside: 2.5px;
+    visibility: hidden;
+}
+a{
+    color: lightcyan;
+}
+a:visited {
+    color: darkcyan;
+}
+
+
