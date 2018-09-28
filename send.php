@@ -1,29 +1,38 @@
 <?php
+session_start();
 if (isset($_POST["button"])) {
     $r = $_POST["R"];
     $x = $_POST["X"];
     $y = $_POST["Y"];
 }
-if ((!is_numeric($y)||($y<-3)||($y>5)))
-    $result = "Косяк";
- else
-{
-if ($x > 0) {
-    if ($y < 0) $result = "нет";
-    else {
-        if (($x >= (-$r)) and ($y <= $r / 2)) $result = "да";
-        else $result = "нет";
-    }
+if (!isset($_SESSION['count'])) {
+    $_SESSION['count'] = 0;
 } else {
-    if ($y > 0) {
-        if ($x ** 2 + $y ** 2 <= $r ** 2) $result = "да";
-        else $result = "нет";
+    $_SESSION['count']++;
+}
+$_SESSION['R' . $_SESSION['count']] = $r;
+$_SESSION['X' . $_SESSION['count']] = $x;
+$_SESSION['Y' . $_SESSION['count']] = $y;
+if ((!is_numeric($y) || ($y < -3) || ($y > 5)))
+    $result = "Невалидные данные, как вы это провернули?";
+else {
+    if ($x > 0) {
+        if ($y < 0) $result = "нет";
+        else {
+            if (($x >= (-$r)) and ($y <= $r / 2)) $result = "да";
+            else $result = "нет";
+        }
     } else {
-        if (2 * $x + $y <= $r) $result = "да";
-        else $result = "нет";
+        if ($y > 0) {
+            if ($x ** 2 + $y ** 2 <= $r ** 2) $result = "да";
+            else $result = "нет";
+        } else {
+            if (2 * $x + $y <= $r) $result = "да";
+            else $result = "нет";
+        }
     }
 }
-}
+$_SESSION['Result' . $_SESSION['count']] = $result;
 
 
 echo '
@@ -50,22 +59,46 @@ echo '
     </tr>
     <tr>
         <td>
-           
-            <div id="right">
+
+            <div class="left">
                 <table name="result">
                     <tr>
                         <th>R</th>
                         <th>X</th>
                         <th>Y</th>
                         <th>Результат</th>
-                    </tr>
+                    </tr>';
+if ($_SESSION['count']<3){
+    for ($i = 0; $i <= $_SESSION['count']; $i++) {
+
+        echo '
                     <tr>
-                    <td>' . $r . '</td>
-             <td>' . $x . '</td>
-             <td>' . $y . '</td>
-             <td>' . $result . '</td>
+                    <td>' . $_SESSION['R'.$i] . '</td>
+             <td>' . $_SESSION['X'.$i] . '</td>
+             <td>' . $_SESSION['Y'.$i] . '</td>
+             <td>' . $_SESSION['Result'.$i] . '</td>
 </tr>
+';
+    }
+}
+else {
+    for ($i = $_SESSION['count'] - 3; $i <= $_SESSION['count']; $i++) {
+
+        echo '
+                    <tr>
+                    <td>' . $_SESSION['R' . $i] . '</td>
+             <td>' . $_SESSION['X' . $i] . '</td>
+             <td>' . $_SESSION['Y' . $i] . '</td>
+             <td>' . $_SESSION['Result' . $i] . '</td>
+</tr>
+';
+    }
+}
+echo '
                 </table>
+            </div>
+            <div class="right">
+                <img src="images/areas.png">
             </div>
         </td>
     </tr>
@@ -78,3 +111,4 @@ echo '
 </body>
 </html>
 ';
+
