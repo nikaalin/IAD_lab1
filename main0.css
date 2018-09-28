@@ -34,16 +34,17 @@ div{
     font-size: 20pt;
     text-align: center;
 }
+
 @media screen and (orientation: landscape){
-    div#left{
+    div.left{
         position: absolute;
-        top: 15%;
-        left: 35%;
+        top: 13%;
+        left: 15%;
     }
-    div#right{
+    div.right{
         position: absolute;
-        top: 15%;
-        left: 33%;
+        top: 13%;
+        right: 15%;
     }
     table[name="result"]{
         border: 2px solid black;
@@ -100,6 +101,9 @@ div{
         border-radius: 40px;
         font: 30px Arial;
     }
+}
+.right>img{
+    border: groove 6px saddlebrown;
 }
 
 input[type="submit"] {
